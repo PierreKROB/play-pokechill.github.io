@@ -201,7 +201,13 @@
                 return;
             }
 
-            const rawInfo = typeof data.info === "function" ? data.info() : "";
+            // Use i18n for move info if available
+            let rawInfo = "";
+            if (typeof getMoveInfo === "function") {
+                rawInfo = getMoveInfo(m);
+            } else if (typeof data.info === "function") {
+                rawInfo = data.info();
+            }
             const cleanInfo = safeStrip(rawInfo);
 
             const entry = {

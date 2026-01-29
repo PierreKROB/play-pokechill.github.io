@@ -72,7 +72,7 @@
             document.getElementById("item-menu-cancel").style.display = "none";
                 dexTeamSelect = undefined; updateItemBag(); 
                 updatePreviewTeam()'
-                 style="display: none; background: rgb(255, 81, 81); color: white; border: none; text-align: center; display: flex; justify-content: center; align-items: center; ">Cancel</div>
+                 style="display: none; background: rgb(255, 81, 81); color: white; border: none; text-align: center; display: flex; justify-content: center; align-items: center; "><span data-i18n="cancel">Cancel</span></div>
 
             <div id="item-menu-remove" onClick='
             document.getElementById(`team-menu`).style.display = "flex" ;
@@ -82,15 +82,15 @@
             saved.previewTeams[saved.currentPreviewTeam][dexTeamSelect].item = undefined
             dexTeamSelect = undefined; updateItemBag(); 
                 updatePreviewTeam()'
-                 style="display: none; background: rgb(255, 81, 81); color: white; border: none; ">Remove</div>
+                 style="display: none; background: rgb(255, 81, 81); color: white; border: none; "><span data-i18n="remove">Remove</span></div>
 
                  </span>
 
                  <span>
 
-            <div onClick="bagCategory = 'held'; updateItemBag()">Held</div>
-            <div onClick="bagCategory = 'tm'; updateItemBag()">TM's</div>
-            <div onClick="bagCategory = 'key'; updateItemBag()">Key</div>
+            <div onClick="bagCategory = 'held'; updateItemBag()"><span data-i18n="held">Held</span></div>
+            <div onClick="bagCategory = 'tm'; updateItemBag()"><span data-i18n="tms">TM's</span></div>
+            <div onClick="bagCategory = 'key'; updateItemBag()"><span data-i18n="key">Key</span></div>
 
             </span>
         </div>
@@ -442,11 +442,16 @@
         </div>
 
         <div class="settings-list">
-            <div onclick="exportData()">Export Data</div>
-            <div onclick="importData()">Import Data</div>
-            <div onclick="textData()">Data to Text</div>
+            <div onclick="exportData()" data-i18n="exportData">Export Data</div>
+            <div onclick="importData()" data-i18n="importData">Import Data</div>
+            <div onclick="textData()" data-i18n="dataToText">Data to Text</div>
 
-            <div>Theme: <select id="settings-theme">
+            <div><span data-i18n="language">Language</span>: <select id="settings-language" onchange="changeLanguage(this.value)">
+                <option value="en">English (100%)</option>
+                <option value="fr">Français (<span id="lang-fr-progress">0</span>%)</option>
+            </select></div>
+
+            <div><span data-i18n="theme">Theme</span>: <select id="settings-theme">
                 <option value="dark">dark</option>
                 <option value="verdant">verdant</option>
                 <option value="lilac">lilac</option>
@@ -456,14 +461,14 @@
                 <option value="oled">oled</option>
             </select></div>
 
-            <div data-help="settingsNewPkmn" style="cursor: help;">Hide non-new Pokemon got in summary: <select id="settings-hide-got">
-                <option value="false">disabled</option>
-                <option value="true">enabled</option>
+            <div data-help="settingsNewPkmn" style="cursor: help;"><span data-i18n="hideNonNewPokemon">Hide non-new Pokemon got in summary</span>: <select id="settings-hide-got">
+                <option value="false" data-i18n="disabled">disabled</option>
+                <option value="true" data-i18n="enabled">enabled</option>
             </select></div>
 
-            <div data-help="settingsAlternateWild" style="cursor: help;">Substract 1 to current Wild Area rotation: <select id="settings-alternate-rotation">
-                <option value="false">disabled</option>
-                <option value="true">enabled</option>
+            <div data-help="settingsAlternateWild" style="cursor: help;"><span data-i18n="subtractRotation">Substract 1 to current Wild Area rotation</span>: <select id="settings-alternate-rotation">
+                <option value="false" data-i18n="disabled">disabled</option>
+                <option value="true" data-i18n="enabled">enabled</option>
             </select></div>
 
             <!--<div>Tutorials: <select id="settings-tutorial">
@@ -472,19 +477,19 @@
             </select></div>-->
 
             <div onclick='document.getElementById("tooltipTop").style.display = `none`
-        document.getElementById("tooltipTitle").innerHTML = `Credits`
+        document.getElementById("tooltipTitle").innerHTML = i18n.t("credits")
         document.getElementById("tooltipMid").style.display = `none`
-        document.getElementById("tooltipBottom").innerHTML = `Made by <span onclick="secretFight(areas.missingArea.id)">Duck</span><br><br>Pokemon and trainer sprites by Pokemon Showdown (Including artists: Beliot419, kyledove, Gnomowladny, Brumirage and ZacWeavile. Go check their work. Now.)<br><br>Gen 9 sprites by KingOfThe-X-Roads<br><br>All characters and related assets featured in this game are the exclusive property of Nintendo, Creatures Inc., and The Pokémon Company, and are used here strictly for non-commercial purposes.`
-        openTooltip()' >Credits</div>
+        document.getElementById("tooltipBottom").innerHTML = i18n.t("creditsText")
+        openTooltip()' ><span data-i18n="credits">Credits</span></div>
             <div onclick="window.open('https://discord.gg/VnukKfSs3S', '_blank')">Discord</div>
 
             <div style="margin-top: 3rem;background: rgb(206, 83, 83); color: white; " onclick='document.getElementById("tooltipTop").style.display = `none`
-        document.getElementById("tooltipTitle").innerHTML = `Are you sure you want to delete all data forever?`
+        document.getElementById("tooltipTitle").innerHTML = i18n.t("wipeDataConfirm")
         document.getElementById("tooltipMid").style.display = `none`
-        document.getElementById("tooltipBottom").innerHTML = `<div onClick = "clearData()" style="cursor:pointer; font-size:2rem" id="prevent-tooltip-exit">Yeah!</div>`
+        document.getElementById("tooltipBottom").innerHTML = `<div onClick = "clearData()" style="cursor:pointer; font-size:2rem" id="prevent-tooltip-exit">${i18n.t("yeah")}</div>`
         openTooltip()'
             
-            >Wipe Data</div>
+            ><span data-i18n="wipeData">Wipe Data</span></div>
 
 
         </div>
@@ -1340,7 +1345,7 @@ Game Guide
 
         <div class="menu-item" id="menu-item-dictionary" onClick="switchMenu('dictionary')">
             <img src="img/items/journal.png">
-            <span>Dictionary</span>
+            <span data-i18n="dictionary">Dictionary</span>
         </div>
 
         <div class="menu-item" id="menu-item-guide" onClick="switchMenu('guide')">
@@ -1350,7 +1355,7 @@ Game Guide
 
         <div class="menu-item" id="menu-item-settings" onClick="switchMenu('settings')">
             <img src="img/items/key.png">
-            <span>Settings</span>
+            <span data-i18n="settings">Settings</span>
         </div>
 
         <div class="menu-item" id="menu-item-fullscreen" onclick="document.documentElement.requestFullscreen(); openMenu()">
@@ -1487,6 +1492,14 @@ Game Guide
     <script src="scripts/HackTimer.js"></script>
     <script src="scripts/fuse.js"></script>
 
+    <!-- i18n System -->
+    <script src="scripts/i18n.js"></script>
+    <script src="scripts/i18n/ui/en.js"></script>
+    <script src="scripts/i18n/abilities/en.js"></script>
+    <script src="scripts/i18n/moves/en.js"></script>
+    <script src="scripts/i18n/items/en.js"></script>
+    <script src="scripts/i18n/buffs/en.js"></script>
+    <script src="scripts/i18n/i18n-integration.js"></script>
 
     <script src="scripts/moveDictionary.js"></script>
     <script src="scripts/itemDictionary.js"></script>

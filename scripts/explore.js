@@ -68,6 +68,15 @@ function voidAnimation(divName, animationName) {
 }
 
 function format(input) {
+    // Use i18n for translations if available
+    if (typeof i18n !== 'undefined') {
+        if (move[input]) return i18n.getMoveName(input);
+        if (pkmn[input]) return i18n.getPokemonName(input);
+        if (ability[input]) return i18n.getAbilityName(input);
+        if (item[input]) return i18n.getItemName(input);
+    }
+
+    // Fallback to original formatting
     let str = String(input);
     if (move[input]?.rename) str = String(move[input].rename);
     if (pkmn[input]?.rename) str = String(pkmn[input].rename);

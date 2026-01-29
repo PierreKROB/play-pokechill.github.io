@@ -1,6 +1,93 @@
+// ===== i18n Helper Functions =====
+// These functions get translated info text with dynamic values
 
+function getAbilityInfo(abilityKey) {
+    if (typeof i18n !== 'undefined') {
+        const info = i18n.getAbilityInfo(abilityKey, {
+            // Status effect tags
+            Burn: typeof tagBurn !== 'undefined' ? tagBurn : 'Burn',
+            Poisoned: typeof tagPoisoned !== 'undefined' ? tagPoisoned : 'Poisoned',
+            Sleep: typeof tagSleep !== 'undefined' ? tagSleep : 'Sleep',
+            Freeze: typeof tagFreeze !== 'undefined' ? tagFreeze : 'Freeze',
+            Confused: typeof tagConfused !== 'undefined' ? tagConfused : 'Confused',
+            Paralysis: typeof tagParalysis !== 'undefined' ? tagParalysis : 'Paralysis',
+            // Weather tags
+            Sunny: typeof tagSunny !== 'undefined' ? tagSunny : 'Sunny',
+            Rainy: typeof tagRainy !== 'undefined' ? tagRainy : 'Rainy',
+            Sandstorm: typeof tagSandstorm !== 'undefined' ? tagSandstorm : 'Sandstorm',
+            Hail: typeof tagHail !== 'undefined' ? tagHail : 'Hail',
+            Foggy: typeof tagFoggy !== 'undefined' ? tagFoggy : 'Foggy',
+            ElectricTerrain: typeof tagElectricTerrain !== 'undefined' ? tagElectricTerrain : 'Electric Terrain',
+            GrassyTerrain: typeof tagGrassyTerrain !== 'undefined' ? tagGrassyTerrain : 'Grassy Terrain',
+            MistyTerrain: typeof tagMistyTerrain !== 'undefined' ? tagMistyTerrain : 'Misty Terrain'
+        });
+        if (info) return info;
+    }
+    // Fallback to original info function
+    return ability[abilityKey]?.info ? ability[abilityKey].info() : '';
+}
 
+function getMoveInfo(moveKey) {
+    if (typeof i18n !== 'undefined') {
+        const info = i18n.getMoveInfo(moveKey, {
+            Burn: typeof tagBurn !== 'undefined' ? tagBurn : 'Burn',
+            Poisoned: typeof tagPoisoned !== 'undefined' ? tagPoisoned : 'Poisoned',
+            Sleep: typeof tagSleep !== 'undefined' ? tagSleep : 'Sleep',
+            Freeze: typeof tagFreeze !== 'undefined' ? tagFreeze : 'Freeze',
+            Confused: typeof tagConfused !== 'undefined' ? tagConfused : 'Confused',
+            Paralysis: typeof tagParalysis !== 'undefined' ? tagParalysis : 'Paralysis',
+            Sunny: typeof tagSunny !== 'undefined' ? tagSunny : 'Sunny',
+            Rainy: typeof tagRainy !== 'undefined' ? tagRainy : 'Rainy',
+            Sandstorm: typeof tagSandstorm !== 'undefined' ? tagSandstorm : 'Sandstorm',
+            Hail: typeof tagHail !== 'undefined' ? tagHail : 'Hail',
+            Foggy: typeof tagFoggy !== 'undefined' ? tagFoggy : 'Foggy',
+            ElectricTerrain: typeof tagElectricTerrain !== 'undefined' ? tagElectricTerrain : 'Electric Terrain',
+            GrassyTerrain: typeof tagGrassyTerrain !== 'undefined' ? tagGrassyTerrain : 'Grassy Terrain',
+            MistyTerrain: typeof tagMistyTerrain !== 'undefined' ? tagMistyTerrain : 'Misty Terrain'
+        });
+        if (info) return info;
+    }
+    // Fallback to original info function
+    return move[moveKey]?.info ? move[moveKey].info() : '';
+}
 
+function getItemInfo(itemKey) {
+    if (typeof i18n !== 'undefined') {
+        // Calculate dynamic values for items
+        const itemData = item[itemKey];
+        const power = itemData?.power ? itemData.power().toFixed(2) : '';
+        const pokemon = itemData?.heldBonusPkmn ? format(itemData.heldBonusPkmn()) : '';
+
+        const info = i18n.getItemInfo(itemKey, {
+            power: power,
+            pokemon: pokemon,
+            level: typeof wildAreaLevel2 !== 'undefined' ? wildAreaLevel2 : '30',
+            Burn: typeof tagBurn !== 'undefined' ? tagBurn : 'Burn',
+            Poisoned: typeof tagPoisoned !== 'undefined' ? tagPoisoned : 'Poisoned',
+            Sunny: typeof tagSunny !== 'undefined' ? tagSunny : 'Sunny',
+            Rainy: typeof tagRainy !== 'undefined' ? tagRainy : 'Rainy',
+            Sandstorm: typeof tagSandstorm !== 'undefined' ? tagSandstorm : 'Sandstorm',
+            Hail: typeof tagHail !== 'undefined' ? tagHail : 'Hail',
+            Foggy: typeof tagFoggy !== 'undefined' ? tagFoggy : 'Foggy',
+            ElectricTerrain: typeof tagElectricTerrain !== 'undefined' ? tagElectricTerrain : 'Electric Terrain',
+            GrassyTerrain: typeof tagGrassyTerrain !== 'undefined' ? tagGrassyTerrain : 'Grassy Terrain',
+            MistyTerrain: typeof tagMistyTerrain !== 'undefined' ? tagMistyTerrain : 'Misty Terrain'
+        });
+        if (info) return info;
+    }
+    // Fallback to original info function
+    return item[itemKey]?.info ? item[itemKey].info() : '';
+}
+
+function getBuffInfo(buffKey) {
+    if (typeof i18n !== 'undefined') {
+        const info = i18n.getBuffInfo(buffKey);
+        if (info) return info;
+    }
+    return '';
+}
+
+// ===== Original Tooltip Code =====
 
 function closePkmnEditor(){
 
@@ -257,25 +344,29 @@ function tooltipData(category, ttdata){
         document.getElementById("tooltipTop").style.display = `none`
         document.getElementById("tooltipTitle").innerHTML = `${format(ttdata)}`
         document.getElementById("tooltipMid").style.display = `none`
-        if (ttdata==="burn") document.getElementById("tooltipBottom").innerHTML = `Decreases Physical Attack by 50% and deals damage every turn`
-        if (ttdata==="poisoned") document.getElementById("tooltipBottom").innerHTML = `Decreases Special Attack by 50% and deals damage every turn`
-        if (ttdata==="sleep") document.getElementById("tooltipBottom").innerHTML = `Moves fail to deal damage`
-        if (ttdata==="freeze") document.getElementById("tooltipBottom").innerHTML = `Moves fail to deal damage`
-        if (ttdata==="confused") document.getElementById("tooltipBottom").innerHTML = `50% chance for moves to fail to deal damage`
-        if (ttdata==="paralysis") document.getElementById("tooltipBottom").innerHTML = `25% chance for moves to fail to deal damage and Speed is reduced by 75%`
-        
-        if (ttdata==="sunny") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Fire-Type moves by 75% and decreases the damage of Water-Type moves by 50%`
-        if (ttdata==="rainy") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Water-Type moves by 75% and decreases the damage of Fire-Type moves by 50%`
-        if (ttdata==="sandstorm") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Rock and Ground-Type moves by 75%`
-        if (ttdata==="hail") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Ice-Type moves by 75%`
-        if (ttdata==="foggy") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Dark and Ghost-Type moves by 75%`
-        if (ttdata==="electricTerrain") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Electric and Steel-Type moves by 75%`
-        if (ttdata==="grassyTerrain") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Grass and Bug-Type moves by 75%`
-        if (ttdata==="mistyTerrain") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Fairy and Psychic-Type moves by 75%`
 
-        
-        
-        
+        // Use i18n for buff descriptions
+        const buffInfo = getBuffInfo(ttdata)
+        if (buffInfo) {
+            document.getElementById("tooltipBottom").innerHTML = buffInfo
+        } else {
+            // Fallback to hardcoded values
+            if (ttdata==="burn") document.getElementById("tooltipBottom").innerHTML = `Decreases Physical Attack by 50% and deals damage every turn`
+            if (ttdata==="poisoned") document.getElementById("tooltipBottom").innerHTML = `Decreases Special Attack by 50% and deals damage every turn`
+            if (ttdata==="sleep") document.getElementById("tooltipBottom").innerHTML = `Moves fail to deal damage`
+            if (ttdata==="freeze") document.getElementById("tooltipBottom").innerHTML = `Moves fail to deal damage`
+            if (ttdata==="confused") document.getElementById("tooltipBottom").innerHTML = `50% chance for moves to fail to deal damage`
+            if (ttdata==="paralysis") document.getElementById("tooltipBottom").innerHTML = `25% chance for moves to fail to deal damage and Speed is reduced by 75%`
+            if (ttdata==="sunny") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Fire-Type moves by 75% and decreases the damage of Water-Type moves by 50%`
+            if (ttdata==="rainy") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Water-Type moves by 75% and decreases the damage of Fire-Type moves by 50%`
+            if (ttdata==="sandstorm") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Rock and Ground-Type moves by 75%`
+            if (ttdata==="hail") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Ice-Type moves by 75%`
+            if (ttdata==="foggy") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Dark and Ghost-Type moves by 75%`
+            if (ttdata==="electricTerrain") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Electric and Steel-Type moves by 75%`
+            if (ttdata==="grassyTerrain") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Grass and Bug-Type moves by 75%`
+            if (ttdata==="mistyTerrain") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Fairy and Psychic-Type moves by 75%`
+        }
+
         openTooltip()
     }
 
@@ -356,7 +447,7 @@ function tooltipData(category, ttdata){
         document.getElementById("tooltipMid").innerHTML = `Common Ability`
         if (ability[ttdata].rarity===2) document.getElementById("tooltipMid").innerHTML = `Uncommon Ability`
         if (ability[ttdata].rarity===3) document.getElementById("tooltipMid").innerHTML = `Rare Ability`
-        document.getElementById("tooltipBottom").innerHTML = ability[ttdata].info()
+        document.getElementById("tooltipBottom").innerHTML = getAbilityInfo(ttdata)
         openTooltip()
     }
 
@@ -402,8 +493,9 @@ function tooltipData(category, ttdata){
 
 
         document.getElementById("tooltipMid").innerHTML = `${format(move[ttdata].type)}, ${move[ttdata].power} Power, ${format(move[ttdata].split)}${affectedText}`
-        if (move[ttdata].info == undefined) document.getElementById("tooltipBottom").innerHTML = `No additional effects`
-        else document.getElementById("tooltipBottom").innerHTML = move[ttdata].info()
+        const moveInfo = getMoveInfo(ttdata)
+        if (!moveInfo) document.getElementById("tooltipBottom").innerHTML = `No additional effects`
+        else document.getElementById("tooltipBottom").innerHTML = moveInfo
         openTooltip()
 
     }
@@ -413,9 +505,9 @@ function tooltipData(category, ttdata){
         document.getElementById("tooltipTop").style.display = "flex"
         if (item[ttdata].type !== "tm") document.getElementById("tooltipTop").innerHTML = `<img src="img/items/${ttdata}.png">`
         if (item[ttdata].type == "tm") document.getElementById("tooltipTop").innerHTML = `<img src="img/items/tm${format(move[item[ttdata].move].type)}.png">`
-        
+
         document.getElementById("tooltipTitle").innerHTML = format(ttdata)
-        document.getElementById("tooltipBottom").innerHTML = item[ttdata].info()
+        document.getElementById("tooltipBottom").innerHTML = getItemInfo(ttdata)
         
 
         if (item[ttdata].type==="held"){
@@ -994,9 +1086,10 @@ const sortedMovepool = movepool
 
         document.getElementById("tooltipTop").style.display = `none`
         document.getElementById("tooltipTitle").innerHTML = format(ttdata)
-        document.getElementById("tooltipMid").innerHTML = `Common Ability<br>${ability[ttdata].info()}`
-        if (ability[ttdata].rarity===2) document.getElementById("tooltipMid").innerHTML = `Uncommon Ability<br>${ability[ttdata].info()}`
-        if (ability[ttdata].rarity===3) document.getElementById("tooltipMid").innerHTML = `Rare Ability<br>${ability[ttdata].info()}`
+        const abilityInfoText = getAbilityInfo(ttdata)
+        document.getElementById("tooltipMid").innerHTML = `Common Ability<br>${abilityInfoText}`
+        if (ability[ttdata].rarity===2) document.getElementById("tooltipMid").innerHTML = `Uncommon Ability<br>${abilityInfoText}`
+        if (ability[ttdata].rarity===3) document.getElementById("tooltipMid").innerHTML = `Rare Ability<br>${abilityInfoText}`
         
         if (ability[ttdata].type){
 
@@ -1058,7 +1151,8 @@ const sortedMovepool = movepool
 
 
         document.getElementById("tooltipMid").innerHTML = `${move[ttdata].power} Power, ${format(move[ttdata].split)}${affectedText}`
-        if (move[ttdata].info != undefined) document.getElementById("tooltipMid").innerHTML += `<br>${move[ttdata].info()}`
+        const dictionaryMoveInfo = getMoveInfo(ttdata)
+        if (dictionaryMoveInfo) document.getElementById("tooltipMid").innerHTML += `<br>${dictionaryMoveInfo}`
         
         
         
@@ -1195,7 +1289,7 @@ const sortedMovepool = movepool
 
 
 
-        document.getElementById("tooltipMid").innerHTML = `${item[ttdata].info()}<br>(You have ${item[ttdata].got})`
+        document.getElementById("tooltipMid").innerHTML = `${getItemInfo(ttdata)}<br>(You have ${item[ttdata].got})`
 
 
 
