@@ -1,5 +1,6 @@
 // French moves translations
 // Add translations progressively - untranslated moves will fallback to English
+
 i18n.register('moves', 'fr', {
     // Normal moves
     quickAttack: {
