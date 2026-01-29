@@ -13,11 +13,44 @@ const moveDictContent = fs.readFileSync(moveDictPath, 'utf8');
 const itemDictPath = path.join(__dirname, '..', 'itemDictionary.js');
 const itemDictContent = fs.readFileSync(itemDictPath, 'utf8');
 
+const pkmnDictPath = path.join(__dirname, '..', 'pkmnDictionary.js');
+const pkmnDictContent = fs.readFileSync(pkmnDictPath, 'utf8');
+
 // Helper to convert camelCase to Title Case
 function formatKey(key) {
     return key
         .replace(/([a-z])([A-Z])/g, '$1 $2')
         .replace(/\b\w/g, c => c.toUpperCase());
+}
+
+// Special Pokemon name formatting
+function formatPokemonName(key, rename = null) {
+    if (rename) {
+        // Use rename but still apply title case
+        return rename
+            .replace(/([a-z])([A-Z])/g, '$1 $2')
+            .replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    let name = key;
+
+    // Handle special prefixes
+    name = name.replace(/^mega/, 'Mega ');
+    name = name.replace(/^hisuian/, 'Hisuian ');
+    name = name.replace(/^alolan/, 'Alolan ');
+    name = name.replace(/^galarian/, 'Galarian ');
+    name = name.replace(/^paldean/, 'Paldean ');
+
+    // Handle special suffixes
+    name = name.replace(/Gmax$/, ' (Gigantamax)');
+    name = name.replace(/Clone$/, ' (Clone)');
+
+    // Convert remaining camelCase
+    name = name
+        .replace(/([a-z])([A-Z])/g, '$1 $2')
+        .replace(/\b\w/g, c => c.toUpperCase());
+
+    return name;
 }
 
 // Clean up info string - convert ${} to {} placeholders
@@ -53,11 +86,10 @@ function cleanInfo(info) {
 }
 
 // Parse a definition block and extract key info
-function parseDefinition(objName, content) {
+function parseDefinition(objName, content, isPokemon = false) {
     const results = {};
 
     // Match pattern: objName.key = { ... }
-    // We need to handle nested braces properly
     const pattern = new RegExp(`${objName}\\.(\\w+)\\s*=\\s*\\{`, 'g');
     let match;
 
@@ -77,23 +109,24 @@ function parseDefinition(objName, content) {
 
         const body = content.slice(startIdx, endIdx - 1);
 
-        const entry = { name: formatKey(key) };
-
         // Extract rename
         const renameMatch = body.match(/rename:\s*[`"']([^`"']+)[`"']/);
-        if (renameMatch) {
-            entry.name = formatKey(renameMatch[1]);
-        }
+        const rename = renameMatch ? renameMatch[1] : null;
 
-        // Extract info - handle template literals with backticks
-        const infoMatch = body.match(/info:\s*function\s*\(\s*\)\s*\{\s*return\s*`([^`]+)`/);
-        if (infoMatch) {
-            entry.info = cleanInfo(infoMatch[1]);
-        } else {
-            // Try with regular quotes
-            const infoMatch2 = body.match(/info:\s*function\s*\(\s*\)\s*\{\s*return\s*["']([^"']+)["']/);
-            if (infoMatch2) {
-                entry.info = cleanInfo(infoMatch2[1]);
+        const entry = {
+            name: isPokemon ? formatPokemonName(key, rename) : (rename ? formatKey(rename) : formatKey(key))
+        };
+
+        // Extract info - handle template literals with backticks (not for Pokemon)
+        if (!isPokemon) {
+            const infoMatch = body.match(/info:\s*function\s*\(\s*\)\s*\{\s*return\s*`([^`]+)`/);
+            if (infoMatch) {
+                entry.info = cleanInfo(infoMatch[1]);
+            } else {
+                const infoMatch2 = body.match(/info:\s*function\s*\(\s*\)\s*\{\s*return\s*["']([^"']+)["']/);
+                if (infoMatch2) {
+                    entry.info = cleanInfo(infoMatch2[1]);
+                }
             }
         }
 
@@ -128,8 +161,9 @@ console.log('Extracting translations...');
 
 const abilities = parseDefinition('ability', moveDictContent);
 const moves = parseDefinition('move', moveDictContent);
+const pokemon = parseDefinition('pkmn', pkmnDictContent, true);
 
-// For items, filter out TMs and hidden items
+// For items, filter out TMs
 const allItems = parseDefinition('item', itemDictContent);
 const items = {};
 for (const [key, value] of Object.entries(allItems)) {
@@ -146,6 +180,7 @@ const itemsWithInfo = Object.values(items).filter(i => i.info).length;
 console.log(`Found ${Object.keys(abilities).length} abilities (${abilitiesWithInfo} with info)`);
 console.log(`Found ${Object.keys(moves).length} moves (${movesWithInfo} with info)`);
 console.log(`Found ${Object.keys(items).length} items (${itemsWithInfo} with info)`);
+console.log(`Found ${Object.keys(pokemon).length} pokemon`);
 
 // Write EN files
 const abilitiesEnPath = path.join(__dirname, 'abilities', 'en.js');
@@ -159,6 +194,16 @@ console.log(`Written: ${movesEnPath}`);
 const itemsEnPath = path.join(__dirname, 'items', 'en.js');
 fs.writeFileSync(itemsEnPath, generateJsFile('items', 'en', items));
 console.log(`Written: ${itemsEnPath}`);
+
+// Ensure pokemon directory exists
+const pokemonDir = path.join(__dirname, 'pokemon');
+if (!fs.existsSync(pokemonDir)) {
+    fs.mkdirSync(pokemonDir, { recursive: true });
+}
+
+const pokemonEnPath = path.join(__dirname, 'pokemon', 'en.js');
+fs.writeFileSync(pokemonEnPath, generateJsFile('pokemon', 'en', pokemon));
+console.log(`Written: ${pokemonEnPath}`);
 
 // Create buffs EN file
 const buffs = {

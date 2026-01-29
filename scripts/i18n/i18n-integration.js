@@ -28,8 +28,7 @@ function updateLanguageProgress() {
 function refreshTranslations() {
     updateLanguageProgress();
     
-    // You can add more specific refresh logic here as needed
-    // For example, refresh dictionary entries, move descriptions, etc.
+    // Additional UI refresh functions can be called here
 }
 
 // Initialize language on page load

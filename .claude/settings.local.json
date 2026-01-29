@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node scripts/i18n/extract-translations.js:*)"
+      "Bash(node scripts/i18n/extract-translations.js:*)",
+      "Bash(node scripts/i18n/cleanup-dictionaries.js:*)",
+      "Bash(git checkout:*)"
     ]
   }
 }
