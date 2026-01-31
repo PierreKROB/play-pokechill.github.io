@@ -1238,11 +1238,11 @@ const sortedMovepool = movepool
 
 
         let spawnLocation = ""
-        if (wildSpawn != "") spawnLocation += `<span>Found in the wild area ${format(wildSpawn)} (Rotation ${areas[wildSpawn].rotation})</span>`
+        if (wildSpawn != "") spawnLocation += `<span>Found in the wild area ${i18n.getAreaName(wildSpawn)} (Rotation ${areas[wildSpawn].rotation})</span>`
         if ( wildlifePoolCommon.includes(ttdata) || wildlifePoolUncommon.includes(ttdata) || wildlifePoolRare.includes(ttdata) ) spawnLocation += `<span>Found randomly in the Wildlife Park wild area</span>`
         if ( exclusiveFrontierPkmn.includes(pkmn[ttdata]) ) spawnLocation += `<span>Obtained as a random reward in the Battle Frontier</span>`
-        if (encounterSpawn != "") spawnLocation += `<span>Obtained in the event ${format(areas[encounterSpawn].name)} (Rotation ${areas[encounterSpawn].rotation})</span>`
-        if (eventSpawn != "") spawnLocation += `<span>Found in the event ${format(eventSpawn)} (Rotation ${areas[eventSpawn].rotation})</span>`
+        if (encounterSpawn != "") spawnLocation += `<span>Obtained in the event ${i18n.getAreaName(encounterSpawn)} (Rotation ${areas[encounterSpawn].rotation})</span>`
+        if (eventSpawn != "") spawnLocation += `<span>Found in the event ${i18n.getAreaName(eventSpawn)} (Rotation ${areas[eventSpawn].rotation})</span>`
         if (spawnLocation == "") spawnLocation = `This Pokemon cannot be caught on its current stage`
         if (pkmn[ttdata].tagObtainedIn == "unobtainable") spawnLocation = `This Pokemon is unobtainable`
         if (pkmn[ttdata].tagObtainedIn == "mart") spawnLocation = `Can be purchased in the Poke-Mart`
@@ -1319,7 +1319,7 @@ const sortedMovepool = movepool
 
             if (areas[i].encounter) {
             if (areas[i].reward?.includes(item[ttdata])){
-                obtainText += `<span>Reward from the event ${format(areas[i].name)} (Rotation ${areas[i].rotation})</span>`
+                obtainText += `<span>Reward from the event ${i18n.getAreaName(i)} (Rotation ${areas[i].rotation})</span>`
             }
             }
         }

@@ -10,11 +10,12 @@ const i18n = {
         items: {},
         abilities: {},
         pokemon: {},
-        buffs: {}
+        buffs: {},
+        areas: {}
     },
     stats: {
-        en: { ui: 0, moves: 0, items: 0, abilities: 0, pokemon: 0, buffs: 0 },
-        fr: { ui: 0, moves: 0, items: 0, abilities: 0, pokemon: 0, buffs: 0 }
+        en: { ui: 0, moves: 0, items: 0, abilities: 0, pokemon: 0, buffs: 0, areas: 0 },
+        fr: { ui: 0, moves: 0, items: 0, abilities: 0, pokemon: 0, buffs: 0, areas: 0 }
     },
 
     // Register translations for a category
@@ -152,6 +153,20 @@ const i18n = {
         return '';
     },
 
+    // ===== AREAS =====
+
+    getAreaName(areaKey) {
+        const translation = this.get('areas', areaKey);
+        if (translation?.name) return translation.name;
+        return this._formatKey(areaKey);
+    },
+
+    getAreaUnlockDescription(areaKey) {
+        const translation = this.get('areas', areaKey);
+        if (translation?.unlockDescription) return translation.unlockDescription;
+        return '';
+    },
+
     // ===== UTILITY =====
 
     // Convert camelCase to Title Case
@@ -191,7 +206,7 @@ const i18n = {
 
     // Load language files dynamically
     async loadLanguage(lang) {
-        const categories = ['ui', 'moves', 'items', 'abilities', 'pokemon', 'buffs'];
+        const categories = ['ui', 'moves', 'items', 'abilities', 'pokemon', 'buffs', 'areas'];
 
         for (const category of categories) {
             try {
@@ -231,9 +246,23 @@ const i18n = {
         }
     },
 
+    // Detect browser language
+    detectBrowserLanguage() {
+        const supportedLangs = ['en', 'fr'];
+        const browserLang = navigator.language?.split('-')[0] || 'en';
+        return supportedLangs.includes(browserLang) ? browserLang : 'en';
+    },
+
     // Initialize i18n system
     async init() {
-        const savedLang = localStorage.getItem('pokechill-lang') || 'en';
+        // Check for saved preference, otherwise detect from browser
+        let savedLang = localStorage.getItem('pokechill-lang');
+
+        if (!savedLang) {
+            savedLang = this.detectBrowserLanguage();
+            localStorage.setItem('pokechill-lang', savedLang);
+        }
+
         this.currentLang = savedLang;
 
         // Always load English first (base language)

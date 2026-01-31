@@ -25,6 +25,7 @@ i18n.register('ui', 'fr', {
     dex: "Dex",
     shop: "Poké-Shop",
     training: "Entraînement",
+    customChallenges: "Défis",
     genetics: "Génétique",
     mysteryGift: "Cadeau Mystère",
     exportReward: "Récompense d'Exportation",
