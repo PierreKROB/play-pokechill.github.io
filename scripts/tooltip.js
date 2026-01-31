@@ -279,7 +279,7 @@ function tooltipData(category, ttdata){
         }
 
         if (areas[ttdata].reward !== undefined) {
-        document.getElementById("tooltipMid").innerHTML = `<div id="area-preview-items"><strong>Victory Rewards</strong></div>`;
+        document.getElementById("tooltipMid").innerHTML = `<div id="area-preview-items"><strong>${i18n.t('victoryRewards')}</strong></div>`;
         const rewards = areas[ttdata].reward;
         for (const i of rewards) {
         const div = document.createElement("div");
@@ -298,7 +298,7 @@ function tooltipData(category, ttdata){
 
         if (areas[ttdata].itemReward) { //new reward function ill eventually have to convert the rest of the code but for now im quite lazy
             const tooltipMid = document.getElementById("tooltipMid");
-            tooltipMid.innerHTML = `<div id="area-preview-items"><strong>Victory Rewards</strong></div>`;
+            tooltipMid.innerHTML = `<div id="area-preview-items"><strong>${i18n.t('victoryRewards')}</strong></div>`;
             tooltipMid.style.display = "inline";
             
             const itemsContainer = document.getElementById("area-preview-items");
@@ -1116,9 +1116,7 @@ const sortedMovepool = movepool
         This ability can only appear as the Hidden Ability of ${joinWithAnd(signatureArray)}
         `
         } else{
-        document.getElementById("tooltipBottom").innerHTML = `
-        This ability is currently unobtainable :(
-        ` 
+        document.getElementById("tooltipBottom").innerHTML = i18n.t('abilityUnobtainable')
         }
 
         }
@@ -1238,15 +1236,15 @@ const sortedMovepool = movepool
 
 
         let spawnLocation = ""
-        if (wildSpawn != "") spawnLocation += `<span>Found in the wild area ${i18n.getAreaName(wildSpawn)} (Rotation ${areas[wildSpawn].rotation})</span>`
-        if ( wildlifePoolCommon.includes(ttdata) || wildlifePoolUncommon.includes(ttdata) || wildlifePoolRare.includes(ttdata) ) spawnLocation += `<span>Found randomly in the Wildlife Park wild area</span>`
-        if ( exclusiveFrontierPkmn.includes(pkmn[ttdata]) ) spawnLocation += `<span>Obtained as a random reward in the Battle Frontier</span>`
-        if (encounterSpawn != "") spawnLocation += `<span>Obtained in the event ${i18n.getAreaName(encounterSpawn)} (Rotation ${areas[encounterSpawn].rotation})</span>`
-        if (eventSpawn != "") spawnLocation += `<span>Found in the event ${i18n.getAreaName(eventSpawn)} (Rotation ${areas[eventSpawn].rotation})</span>`
-        if (spawnLocation == "") spawnLocation = `This Pokemon cannot be caught on its current stage`
-        if (pkmn[ttdata].tagObtainedIn == "unobtainable") spawnLocation = `This Pokemon is unobtainable`
-        if (pkmn[ttdata].tagObtainedIn == "mart") spawnLocation = `Can be purchased in the Poke-Mart`
-        if (pkmn[ttdata].tagObtainedIn == "arceus") spawnLocation = `Unlocked while all obtainable Pokemon have been caught`
+        if (wildSpawn != "") spawnLocation += `<span>${i18n.t('foundInWildArea')} ${i18n.getAreaName(wildSpawn)} (${i18n.t('rotation')} ${areas[wildSpawn].rotation})</span>`
+        if ( wildlifePoolCommon.includes(ttdata) || wildlifePoolUncommon.includes(ttdata) || wildlifePoolRare.includes(ttdata) ) spawnLocation += `<span>${i18n.t('foundRandomlyWildlifePark')}</span>`
+        if ( exclusiveFrontierPkmn.includes(pkmn[ttdata]) ) spawnLocation += `<span>${i18n.t('obtainedBattleFrontier')}</span>`
+        if (encounterSpawn != "") spawnLocation += `<span>${i18n.t('obtainedInEvent')} ${i18n.getAreaName(encounterSpawn)} (${i18n.t('rotation')} ${areas[encounterSpawn].rotation})</span>`
+        if (eventSpawn != "") spawnLocation += `<span>${i18n.t('foundInEvent')} ${i18n.getAreaName(eventSpawn)} (${i18n.t('rotation')} ${areas[eventSpawn].rotation})</span>`
+        if (spawnLocation == "") spawnLocation = i18n.t('cannotBeCaught')
+        if (pkmn[ttdata].tagObtainedIn == "unobtainable") spawnLocation = i18n.t('unobtainable')
+        if (pkmn[ttdata].tagObtainedIn == "mart") spawnLocation = i18n.t('purchasedInMart')
+        if (pkmn[ttdata].tagObtainedIn == "arceus") spawnLocation = i18n.t('unlockedAllCaught')
 
         document.getElementById("tooltipMid").innerHTML = `
         <span style="display:flex; flex-direction:column">${spawnLocation}<span>
@@ -1255,10 +1253,10 @@ const sortedMovepool = movepool
 
 
         document.getElementById("tooltipBottom").innerHTML = `
-        <div>Abilities</div>
+        <div>${i18n.t('abilities')}</div>
         <div style="width:100%; height:100%; position:relative; display:flex;justify-content:start;align-items:center;flex-direction:column; max-height:25vh; overflow-y:scroll; padding-top:0.5rem;">${getAbilityPoolByTier(pkmn[ttdata])}</div>
-        
-        <div onclick="window.getMoveset(pkmn.${ttdata})" class="custom-challenge-button" style="margin-top:0.5rem">Check learnable moves</div>
+
+        <div onclick="window.getMoveset(pkmn.${ttdata})" class="custom-challenge-button" style="margin-top:0.5rem">${i18n.t('checkLearnableMoves')}</div>
 
 
         `
@@ -1312,30 +1310,30 @@ const sortedMovepool = movepool
 
             if (areas[i].type=="dungeon") {
             if (areas[i].drops?.common?.includes(item[ttdata]) || areas[i].drops?.uncommon?.includes(item[ttdata]) || areas[i].drops?.rare?.includes(item[ttdata])){
-                obtainText += `<span>Can be dropped in the dungeon area ${format(i)} (Rotation ${areas[i].rotation})</span>`
+                obtainText += `<span>${i18n.t('droppedInDungeon')} ${i18n.getAreaName(i)} (${i18n.t('rotation')} ${areas[i].rotation})</span>`
             }
             }
 
 
             if (areas[i].encounter) {
             if (areas[i].reward?.includes(item[ttdata])){
-                obtainText += `<span>Reward from the event ${i18n.getAreaName(i)} (Rotation ${areas[i].rotation})</span>`
+                obtainText += `<span>${i18n.t('rewardFromEvent')} ${i18n.getAreaName(i)} (${i18n.t('rotation')} ${areas[i].rotation})</span>`
             }
             }
         }
 
-        if ([item.hpUp.id, item.protein.id, item.iron.id, item.calcium.id, item.zinc.id, item.carbos.id, item.timeCandy.id].includes(ttdata)) obtainText += `<span>Obtained via Export Reward</span>`
+        if ([item.hpUp.id, item.protein.id, item.iron.id, item.calcium.id, item.zinc.id, item.carbos.id, item.timeCandy.id].includes(ttdata)) obtainText += `<span>${i18n.t('obtainedViaExportReward')}</span>`
 
-        for (const i in spiralingRewards) if (spiralingRewards[i].item==ttdata) obtainText += `<span>Reward from Spiraling Tower</span>`
+        for (const i in spiralingRewards) if (spiralingRewards[i].item==ttdata) obtainText += `<span>${i18n.t('rewardFromSpiralingTower')}</span>`
 
 
         for (const i in shop) {
-            if (shop[i].icon == ttdata) obtainText += `<span>Can be bought in the Poke-Mart</span>`
+            if (shop[i].icon == ttdata) obtainText += `<span>${i18n.t('canBeBoughtInMart')}</span>`
         }
 
 
 
-        if (obtainText=="") obtainText += `<span>This item is currently unobtainable</span>`
+        if (obtainText=="") obtainText += `<span>${i18n.t('itemUnobtainable')}</span>`
 
 
         
