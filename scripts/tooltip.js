@@ -236,7 +236,7 @@ function tooltipData(category, ttdata){
 
         
         if (ttdata == areas.wildlifePark.id) {
-            document.getElementById("tooltipMid").innerHTML = `Pokemon in the Wildlife Park rotate every 12 hours`
+            document.getElementById("tooltipMid").innerHTML = i18n.t('wildlifeParkRotation')
             document.getElementById("tooltipMid").style.display = `inline`
         }
         
@@ -351,20 +351,20 @@ function tooltipData(category, ttdata){
             document.getElementById("tooltipBottom").innerHTML = buffInfo
         } else {
             // Fallback to hardcoded values
-            if (ttdata==="burn") document.getElementById("tooltipBottom").innerHTML = `Decreases Physical Attack by 50% and deals damage every turn`
-            if (ttdata==="poisoned") document.getElementById("tooltipBottom").innerHTML = `Decreases Special Attack by 50% and deals damage every turn`
-            if (ttdata==="sleep") document.getElementById("tooltipBottom").innerHTML = `Moves fail to deal damage`
-            if (ttdata==="freeze") document.getElementById("tooltipBottom").innerHTML = `Moves fail to deal damage`
-            if (ttdata==="confused") document.getElementById("tooltipBottom").innerHTML = `50% chance for moves to fail to deal damage`
-            if (ttdata==="paralysis") document.getElementById("tooltipBottom").innerHTML = `25% chance for moves to fail to deal damage and Speed is reduced by 75%`
-            if (ttdata==="sunny") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Fire-Type moves by 75% and decreases the damage of Water-Type moves by 50%`
-            if (ttdata==="rainy") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Water-Type moves by 75% and decreases the damage of Fire-Type moves by 50%`
-            if (ttdata==="sandstorm") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Rock and Ground-Type moves by 75%`
-            if (ttdata==="hail") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Ice-Type moves by 75%`
-            if (ttdata==="foggy") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Dark and Ghost-Type moves by 75%`
-            if (ttdata==="electricTerrain") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Electric and Steel-Type moves by 75%`
-            if (ttdata==="grassyTerrain") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Grass and Bug-Type moves by 75%`
-            if (ttdata==="mistyTerrain") document.getElementById("tooltipBottom").innerHTML = `Increases the damage of Fairy and Psychic-Type moves by 75%`
+            if (ttdata==="burn") document.getElementById("tooltipBottom").innerHTML = i18n.t('burnDesc')
+            if (ttdata==="poisoned") document.getElementById("tooltipBottom").innerHTML = i18n.t('poisonedDesc')
+            if (ttdata==="sleep") document.getElementById("tooltipBottom").innerHTML = i18n.t('sleepDesc')
+            if (ttdata==="freeze") document.getElementById("tooltipBottom").innerHTML = i18n.t('freezeDesc')
+            if (ttdata==="confused") document.getElementById("tooltipBottom").innerHTML = i18n.t('confusedDesc')
+            if (ttdata==="paralysis") document.getElementById("tooltipBottom").innerHTML = i18n.t('paralysisDesc')
+            if (ttdata==="sunny") document.getElementById("tooltipBottom").innerHTML = i18n.t('sunnyDesc')
+            if (ttdata==="rainy") document.getElementById("tooltipBottom").innerHTML = i18n.t('rainyDesc')
+            if (ttdata==="sandstorm") document.getElementById("tooltipBottom").innerHTML = i18n.t('sandstormDesc')
+            if (ttdata==="hail") document.getElementById("tooltipBottom").innerHTML = i18n.t('hailDesc')
+            if (ttdata==="foggy") document.getElementById("tooltipBottom").innerHTML = i18n.t('foggyDesc')
+            if (ttdata==="electricTerrain") document.getElementById("tooltipBottom").innerHTML = i18n.t('electricTerrainDesc')
+            if (ttdata==="grassyTerrain") document.getElementById("tooltipBottom").innerHTML = i18n.t('grassyTerrainDesc')
+            if (ttdata==="mistyTerrain") document.getElementById("tooltipBottom").innerHTML = i18n.t('mistyTerrainDesc')
         }
 
         openTooltip()
@@ -374,62 +374,62 @@ function tooltipData(category, ttdata){
         document.getElementById("tooltipTop").style.display = `none`
         document.getElementById("tooltipMid").style.display = `none`
 
-        if (ttdata === `VS`) document.getElementById("tooltipTitle").innerHTML = `VS Trainers`
-        if (ttdata === `VS`) document.getElementById("tooltipBottom").innerHTML = `Defeat increasingly difficult trainers and carve yourself a path of fame! You may unlock additional areas to explore as your progress`
+        if (ttdata === `VS`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpVsTitle')
+        if (ttdata === `VS`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpVsDesc')
 
-        if (ttdata === `Frontier`) document.getElementById("tooltipTitle").innerHTML = `Battle Frontier`
-        if (ttdata === `Frontier`) document.getElementById("tooltipBottom").innerHTML = `The Battle Frontier houses different types of challenges under a specific division restriction that rotates every three days. Trainers fought here will reset every day`
+        if (ttdata === `Frontier`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpFrontierTitle')
+        if (ttdata === `Frontier`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpFrontierDesc')
 
-        if (ttdata === `Spiral`) document.getElementById("tooltipTitle").innerHTML = `Battle Tower`
-        if (ttdata === `Spiral`) document.getElementById("tooltipBottom").innerHTML = `The Battle Tower is an infinitely-scaling challenge in which every Pokemon defeated will increase the difficulty. Type Immunities inside this challenge will be instead converted to resistances<br><br>Every time you enter the tower, you will start from floor 1, but you can try as many times as you'd like<br><br>Your highest reached floor will be saved, and reset when the league rotation changes. You will be rewarded for every new highest floor reached at the end of the battle`
+        if (ttdata === `Spiral`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpSpiralTitle')
+        if (ttdata === `Spiral`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpSpiralDesc')
         if (ttdata === `Spiral`) document.getElementById("tooltipMid").style.display = `inline`
-        if (ttdata === `Spiral`) document.getElementById("tooltipMid").innerHTML = `Current Type Rotation: ${format(saved.currentSpiralingType)}`
+        if (ttdata === `Spiral`) document.getElementById("tooltipMid").innerHTML = `${i18n.t('currentTypeRotation')}: ${format(saved.currentSpiralingType)}`
 
 
-        if (ttdata === `BattleFactory`) document.getElementById("tooltipTitle").innerHTML = `Battle Factory`
-        if (ttdata === `BattleFactory`) document.getElementById("tooltipBottom").innerHTML = `The Battle Factory is a challenge in which your goal is to deal the maximum amount of damage. Every turn you will take a fixed amount of damage, and damage from status effects is disabled.<br><br>Every time you enter the factory, your score will reset, but you can try as many times as you'd like<br><br>Your highest reached score will be saved, and reset when the league rotation changes. You will be rewarded for your highest score reached at the end of the battle`
-        if (ttdata === `BattleFactory`) document.getElementById("tooltipMid").innerHTML = `<div id="area-preview-spawns" data-pkmn="${areas.frontierBattleFactory.icon.id}"><strong>Factory Pokemon</strong><img class="sprite-trim" src="img/pkmn/sprite/${areas.frontierBattleFactory.icon.id}.png"></div>`;
+        if (ttdata === `BattleFactory`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpFactoryTitle')
+        if (ttdata === `BattleFactory`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpFactoryDesc')
+        if (ttdata === `BattleFactory`) document.getElementById("tooltipMid").innerHTML = `<div id="area-preview-spawns" data-pkmn="${areas.frontierBattleFactory.icon.id}"><strong>${i18n.t('factoryPokemon')}</strong><img class="sprite-trim" src="img/pkmn/sprite/${areas.frontierBattleFactory.icon.id}.png"></div>`;
         if (ttdata === `BattleFactory`) document.getElementById("tooltipMid").style.display = `inline`
 
-        if (ttdata === `Wild Areas`) document.getElementById("tooltipTitle").innerHTML = `Wild Areas`
-        if (ttdata === `Wild Areas`) document.getElementById("tooltipBottom").innerHTML = `All Pokemon in Wild Areas might be caught by defeating them. Wild Areas rotate every day, so be sure to check out what can be caught today!`
+        if (ttdata === `Wild Areas`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpWildAreasTitle')
+        if (ttdata === `Wild Areas`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpWildAreasDesc')
 
-        if (ttdata === `Dungeons`) document.getElementById("tooltipTitle").innerHTML = `Dungeons`
-        if (ttdata === `Dungeons`) document.getElementById("tooltipBottom").innerHTML = `Pokemon in Dungeons can't be caught, but they can drop useful items and EXP. Dungeons rotate every day aswell`
+        if (ttdata === `Dungeons`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpDungeonsTitle')
+        if (ttdata === `Dungeons`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpDungeonsDesc')
 
-        if (ttdata === `Training`) document.getElementById("tooltipTitle").innerHTML = `Training`
-        if (ttdata === `Training`) document.getElementById("tooltipBottom").innerHTML = `Challenge your Pokemon against waves of foes in order to get stronger. You will naturally have typing advantage against Pokemon fought against, and their level will scale to yours. Type Immunities inside training will be instead converted to resistances.<br><br>Failing a training will result in no gains`
+        if (ttdata === `Training`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpTrainingTitle')
+        if (ttdata === `Training`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpTrainingDesc')
 
-        if (ttdata === `Events`) document.getElementById("tooltipTitle").innerHTML = `Events`
-        if (ttdata === `Events`) document.getElementById("tooltipBottom").innerHTML = `Events might house both items and Pokemon to get. Events marked with a skull signify powerful foes that usually require an item to catch (The item wont be consumed if failed to defeat) that can be acquired in the collection events. All Events rotate every three days.`
+        if (ttdata === `Events`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpEventsTitle')
+        if (ttdata === `Events`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpEventsDesc')
 
-        if (ttdata === `Genetics`) document.getElementById("tooltipTitle").innerHTML = `Genetics`
-        if (ttdata === `Genetics`) document.getElementById("tooltipBottom").innerHTML = `With genetics, you can modify the parameters of a level 100 Pokemon (the host) and influence them based on another Pokemon (the sample)<br><br>Doing so, the level of the host will reset back to 1 while keeping all 4 of its currently selected moves, and a chance to increase its IV's<br><br>Genetics can also be influenced by using genetic-aiding items, which you can use at the end of the operation<br><br>You can find more information about the specifics of genetics in the guide section`
+        if (ttdata === `Genetics`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpGeneticsTitle')
+        if (ttdata === `Genetics`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpGeneticsDesc')
 
-        if (ttdata === `Pokerus`) document.getElementById("tooltipTitle").innerHTML = `Pokerus`
-        if (ttdata === `Pokerus`) document.getElementById("tooltipBottom").innerHTML = `Every 12 hours, some of your Pokemon will contract Pokerus. This virus is entirely beneficial, and will add one level of compatibility to the Pokemon in genetics when used as a host`
+        if (ttdata === `Pokerus`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpPokerusTitle')
+        if (ttdata === `Pokerus`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpPokerusDesc')
 
-        if (ttdata === `settingsNewPkmn`) document.getElementById("tooltipTitle").innerHTML = `Setting`
-        if (ttdata === `settingsNewPkmn`) document.getElementById("tooltipBottom").innerHTML = `Automatically hides got Pokemon that are not new after a battle. Excluded from this setting are: New Pokemon, Iv's Ups and Shiny Pokemon`
+        if (ttdata === `settingsNewPkmn`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpSettingTitle')
+        if (ttdata === `settingsNewPkmn`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpSettingsNewPkmnDesc')
 
-        if (ttdata === `settingsAlternateWild`) document.getElementById("tooltipTitle").innerHTML = `Setting`
-        if (ttdata === `settingsAlternateWild`) document.getElementById("tooltipBottom").innerHTML = `Decreases the current Wild Area rotation by -1. Useful if you missed yesterday's rotation, or if your schedule doesnt line up with my game`
+        if (ttdata === `settingsAlternateWild`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpSettingTitle')
+        if (ttdata === `settingsAlternateWild`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpSettingsAlternateWildDesc')
 
 
-        if (ttdata === `searchDictionary`) document.getElementById("tooltipTitle").innerHTML = `Keywords`
-        if (ttdata === `searchDictionary`) document.getElementById("tooltipBottom").innerHTML = `Operators:<br>![keyword]: Exclude from search<br>[keywordA] or [keywordB]: Search keywordA OR keywordB<br>[keywordA] [keywordB]: Search for keywordA AND keywordB<br><br>Pokemon keywords:<br>unobtainable, wild, park, event, frontier, mart, shiny, caught, [type], [hidden ability]<br><br>Move keywords:<br>physical, special, [type], [ability]`
+        if (ttdata === `searchDictionary`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpKeywordsTitle')
+        if (ttdata === `searchDictionary`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpKeywordsDictionaryDesc')
         if (ttdata === `searchDictionary`) document.getElementById("dictionary-search").blur()
 
 
-        if (ttdata === `searchPokedex`) document.getElementById("tooltipTitle").innerHTML = `Keywords`
-        if (ttdata === `searchPokedex`) document.getElementById("tooltipBottom").innerHTML = `Operators:<br>![keyword]: Exclude from search<br>[keywordA] or [keywordB]: Search keywordA OR keywordB<br>[keywordA] [keywordB]: Search for keywordA AND keywordB<br><br>Keywords:<br>shiny, pokerus, [type], [ability], [hidden ability], [level], [move]`
+        if (ttdata === `searchPokedex`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpKeywordsTitle')
+        if (ttdata === `searchPokedex`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpKeywordsPokedexDesc')
         if (ttdata === `searchPokedex`) document.getElementById("pokedex-search").blur()
 
-        if (ttdata === `Main Challenges`) document.getElementById("tooltipTitle").innerHTML = `Main Challenges`
-        if (ttdata === `Main Challenges`) document.getElementById("tooltipBottom").innerHTML = `Story-driven battles and curated challenges live here. More Main Challenges are coming soon.`
+        if (ttdata === `Main Challenges`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpMainChallengesTitle')
+        if (ttdata === `Main Challenges`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpMainChallengesDesc')
 
-        if (ttdata === `Custom Challenges`) document.getElementById("tooltipTitle").innerHTML = `Custom Challenges`
-        if (ttdata === `Custom Challenges`) document.getElementById("tooltipBottom").innerHTML = `Create custom battles from your own pools and enemy teams. Import and export challenge codes to share them.`
+        if (ttdata === `Custom Challenges`) document.getElementById("tooltipTitle").innerHTML = i18n.t('helpCustomChallengesTitle')
+        if (ttdata === `Custom Challenges`) document.getElementById("tooltipBottom").innerHTML = i18n.t('helpCustomChallengesDesc')
 
 
 
@@ -444,9 +444,9 @@ function tooltipData(category, ttdata){
         document.getElementById("tooltipTop").style.display = `none`
         document.getElementById("tooltipTitle").innerHTML = format(ttdata)
         document.getElementById("tooltipTitle").style.display = `inline`
-        document.getElementById("tooltipMid").innerHTML = `Common Ability`
-        if (ability[ttdata].rarity===2) document.getElementById("tooltipMid").innerHTML = `Uncommon Ability`
-        if (ability[ttdata].rarity===3) document.getElementById("tooltipMid").innerHTML = `Rare Ability`
+        document.getElementById("tooltipMid").innerHTML = i18n.t('commonAbility')
+        if (ability[ttdata].rarity===2) document.getElementById("tooltipMid").innerHTML = i18n.t('uncommonAbility')
+        if (ability[ttdata].rarity===3) document.getElementById("tooltipMid").innerHTML = i18n.t('rareAbility')
         document.getElementById("tooltipBottom").innerHTML = getAbilityInfo(ttdata)
         openTooltip()
     }
@@ -494,7 +494,7 @@ function tooltipData(category, ttdata){
 
         document.getElementById("tooltipMid").innerHTML = `${format(move[ttdata].type)}, ${move[ttdata].power} Power, ${format(move[ttdata].split)}${affectedText}`
         const moveInfo = getMoveInfo(ttdata)
-        if (!moveInfo) document.getElementById("tooltipBottom").innerHTML = `No additional effects`
+        if (!moveInfo) document.getElementById("tooltipBottom").innerHTML = i18n.t('noAdditionalEffects')
         else document.getElementById("tooltipBottom").innerHTML = moveInfo
         openTooltip()
 
@@ -1004,8 +1004,8 @@ const sortedMovepool = movepool
 
         document.getElementById("tooltipTop").style.display = "none"
         document.getElementById("tooltipBottom").style.display = "none"
-        document.getElementById("tooltipTitle").innerHTML = `Restricted Action`
-        document.getElementById("tooltipMid").innerHTML = `Moves cannot be freely switched at this moment`
+        document.getElementById("tooltipTitle").innerHTML = i18n.t('restrictedAction')
+        document.getElementById("tooltipMid").innerHTML = i18n.t('restrictedActionDesc')
         openTooltip()
         return
 
@@ -1017,8 +1017,8 @@ const sortedMovepool = movepool
 
         document.getElementById("tooltipTop").style.display = "none"
         document.getElementById("tooltipBottom").style.display = "none"
-        document.getElementById("tooltipTitle").innerHTML = `Restricted Move`
-        document.getElementById("tooltipMid").innerHTML = `Restricted moves cannot be freely switched during combat`
+        document.getElementById("tooltipTitle").innerHTML = i18n.t('restrictedMove')
+        document.getElementById("tooltipMid").innerHTML = i18n.t('restrictedMoveDesc')
         openTooltip()
         return
     }
@@ -1087,9 +1087,9 @@ const sortedMovepool = movepool
         document.getElementById("tooltipTop").style.display = `none`
         document.getElementById("tooltipTitle").innerHTML = format(ttdata)
         const abilityInfoText = getAbilityInfo(ttdata)
-        document.getElementById("tooltipMid").innerHTML = `Common Ability<br>${abilityInfoText}`
-        if (ability[ttdata].rarity===2) document.getElementById("tooltipMid").innerHTML = `Uncommon Ability<br>${abilityInfoText}`
-        if (ability[ttdata].rarity===3) document.getElementById("tooltipMid").innerHTML = `Rare Ability<br>${abilityInfoText}`
+        document.getElementById("tooltipMid").innerHTML = `${i18n.t('commonAbility')}<br>${abilityInfoText}`
+        if (ability[ttdata].rarity===2) document.getElementById("tooltipMid").innerHTML = `${i18n.t('uncommonAbility')}<br>${abilityInfoText}`
+        if (ability[ttdata].rarity===3) document.getElementById("tooltipMid").innerHTML = `${i18n.t('rareAbility')}<br>${abilityInfoText}`
         
         if (ability[ttdata].type){
 
@@ -1098,11 +1098,11 @@ const sortedMovepool = movepool
         for (const e in pkmn){
             if (pkmn[e].hiddenAbility?.id == ttdata) signatureArray.push(e)
         }
-        if (signatureArray.length>0) signatureText = `<br><br>Additionally, appears as the Hidden ability of ${joinWithAnd(signatureArray)}`
-        
+        if (signatureArray.length>0) signatureText = `<br><br>${i18n.t('additionallyHiddenAbility')} ${joinWithAnd(signatureArray)}`
+
 
         document.getElementById("tooltipBottom").innerHTML = `
-        Learnable by ${joinWithAnd(ability[ttdata].type)} types ${signatureText}
+        ${i18n.t('learnableByTypes')} ${joinWithAnd(ability[ttdata].type)} ${i18n.t('types')} ${signatureText}
         `
         } else {
 
@@ -1113,7 +1113,7 @@ const sortedMovepool = movepool
 
         if (signatureArray.length>0) {
         document.getElementById("tooltipBottom").innerHTML = `
-        This ability can only appear as the Hidden Ability of ${joinWithAnd(signatureArray)}
+        ${i18n.t('abilityOnlyHiddenOf')} ${joinWithAnd(signatureArray)}
         `
         } else{
         document.getElementById("tooltipBottom").innerHTML = i18n.t('abilityUnobtainable')

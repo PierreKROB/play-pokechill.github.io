@@ -1,13 +1,13 @@
 // French UI translations
 i18n.register('ui', 'fr', {
-    // ===== MENU PARAMÈTRES =====
+    // ===== SETTINGS MENU =====
     settings: "Paramètres",
     exportData: "Exporter les données",
     importData: "Importer les données",
     dataToText: "Données vers texte",
     theme: "Thème",
-    hideNonNewPokemon: "Masquer les Pokémon non-nouveaux dans le récapitulatif",
-    subtractRotation: "Retirer 1 à la rotation actuelle de la Zone Sauvage",
+    hideNonNewPokemon: "Masquer les Pokémon non-nouveaux obtenus dans le récapitulatif",
+    subtractRotation: "Retirer 1 à la rotation actuelle des Zones Sauvages",
     enabled: "activé",
     disabled: "désactivé",
     credits: "Crédits",
@@ -16,31 +16,32 @@ i18n.register('ui', 'fr', {
     wipeDataConfirm: "Êtes-vous sûr de vouloir supprimer toutes les données définitivement ?",
     yeah: "Oui !",
     language: "Langue",
-    creditsText: "Créé par Duck<br><br>Sprites de Pokémon et dresseurs par Pokémon Showdown (incluant les artistes : Beliot419, kyledove, Gnomowladny, Brumirage et ZacWeavile. Allez voir leur travail. Maintenant.)<br><br>Sprites Génération 9 par KingOfThe-X-Roads<br><br>Tous les personnages et actifs liés dans ce jeu sont la propriété exclusive de Nintendo, Creatures Inc., et The Pokémon Company, et sont utilisés ici strictement à des fins non commerciales.",
+    creditsText: "Créé par Duck<br><br>Sprites de Pokémon et dresseurs par Pokémon Showdown (y compris les artistes : Beliot419, kyledove, Gnomowladny, Brumirage et ZacWeavile. Allez voir leur travail. Maintenant.)<br><br>Sprites Gen 9 par KingOfThe-X-Roads<br><br>Tous les personnages et actifs associés présents dans ce jeu sont la propriété exclusive de Nintendo, Creatures Inc., et The Pokémon Company, et sont utilisés ici strictement à des fins non commerciales.",
 
-    // ===== MENU PRINCIPAL =====
+    // ===== MAIN MENU =====
     travel: "Voyager",
     vs: "VS",
     items: "Objets",
     team: "Équipe",
+    teams: "Équipes",
     dex: "Pokédex",
     shop: "Poké-Marché",
     pokeMart: "Poké-Marché",
     training: "Entraînement",
-    customChallenges: "Défi Personnalisé",
-    challenges: "Défi",
+    customChallenges: "Défis",
+    challenges: "Défis",
     genetics: "Génétique",
     mysteryGift: "Cadeau Mystère",
-    exportReward: "Récompense d'Export",
-    wonderTrade: "Échange Miracle",
+    exportReward: "Récompense d'export",
+    wonderTrade: "Échange Surprise",
     dictionary: "Dictionnaire",
     guide: "Guide",
-    gameGuide: "Guide de Jeu",
-    fullScreen: "Plein Écran",
+    gameGuide: "Guide de jeu",
+    fullScreen: "Plein écran",
 
-    // ===== MENU OBJETS =====
+    // ===== ITEM MENU =====
     held: "Tenus",
-    tms: "CT/CS",
+    tms: "CT",
     key: "Clés",
     cancel: "Annuler",
     remove: "Retirer",
@@ -52,21 +53,21 @@ i18n.register('ui', 'fr', {
     events: "Événements",
     battleFrontier: "Frontière Combat",
 
-    // ===== MENU EXPLORATION =====
+    // ===== EXPLORE MENU =====
     level: "Niveau",
-    trainerLevel: "Niveau Dresseur",
+    trainerLevel: "Niveau dresseur",
     rotation: "Rotation",
     floor: "Étage",
-    highestFloor: "Étage le plus haut",
-    highestReachedFloor: "Étage le plus haut atteint",
+    highestFloor: "Étage le plus élevé",
+    highestReachedFloor: "Étage le plus élevé atteint",
     score: "Score",
-    highestScore: "Score le plus élevé",
+    highestScore: "Meilleur score",
     remaining: "Restant",
     noNewItemsOrPokemon: "Aucun nouvel objet ou Pokémon :(",
     allTrainersDefeated: "Tous les dresseurs ont été vaincus !",
     howAboutFrontier: "Et si vous essayiez la Frontière Combat ?",
 
-    // ===== POKÉDEX =====
+    // ===== POKEDEX =====
     pokemon: "Pokémon",
     abilities: "Capacités",
     moves: "Attaques",
@@ -77,7 +78,7 @@ i18n.register('ui', 'fr', {
     selectPokemonToUse: "Sélectionnez un Pokémon pour utiliser le",
     selectPokemonToTeach: "Sélectionnez un Pokémon pour lui apprendre",
 
-    // ===== FILTRES =====
+    // ===== FILTERS =====
     type: "type",
     all: "tous",
     division: "division",
@@ -85,15 +86,15 @@ i18n.register('ui', 'fr', {
     notEvolvedAll: "non évolué (tous)",
     notEvolvedLevel: "non évolué (niveau)",
     ability: "capacité",
-    common: "commun",
-    uncommon: "peu commun",
+    common: "commune",
+    uncommon: "peu commune",
     rare: "rare",
-    lockedHA: "talent caché verrouillé",
+    lockedHA: "capacité cachée verrouillée",
     shiny: "chromatique",
     isShiny: "est chromatique",
     notShiny: "n'est pas chromatique",
     signature: "signature",
-    hasSignature: "a une attaque signature",
+    hasSignature: "a une signature",
     ribbon: "ruban",
     hasRibbon: "a un ruban",
     tag: "étiquette",
@@ -101,62 +102,62 @@ i18n.register('ui', 'fr', {
     hidden: "caché",
     sort: "trier",
 
-    // ===== ENTRAÎNEMENT =====
+    // ===== TRAINING =====
     ivTraining: "Entraînement IV",
     expTraining: "Entraînement EXP",
     signatureMoveTraining: "Entraînement Attaque Signature",
     abilityTraining: "Entraînement Capacité",
-    hiddenAbilityTraining: "Entraînement Talent Caché",
+    hiddenAbilityTraining: "Entraînement Capacité Cachée",
     difficulty: "Difficulté",
 
-    // ===== GÉNÉTIQUE =====
+    // ===== GENETICS =====
     compatibility: "Compatibilité",
-    powerCost: "Coût en énergie",
-    timeToComplete: "Temps pour terminer l'opération",
+    powerCost: "Coût en puissance",
+    timeToComplete: "Temps pour compléter l'opération",
     shinyMutation: "% de mutation chromatique",
     inheritMove: "% de chance d'hériter d'une attaque de l'échantillon",
-    inheritHpIv: "% de chance d'hériter des IV PV de l'échantillon",
-    inheritAtkIv: "% de chance d'hériter des IV Attaque de l'échantillon",
-    inheritSatkIv: "% de chance d'hériter des IV Attaque Spé. de l'échantillon",
-    inheritDefIv: "% de chance d'hériter des IV Défense de l'échantillon",
-    inheritSdefIv: "% de chance d'hériter des IV Défense Spé. de l'échantillon",
-    inheritSpeIv: "% de chance d'hériter des IV Vitesse de l'échantillon",
-    geneticsWarning: "Attention, coût en énergie trop élevé ! Seuls 5 IV maximum par stat seront hérités au lieu de 6 !",
+    inheritHpIv: "% de chance d'hériter des IV de PV de l'échantillon",
+    inheritAtkIv: "% de chance d'hériter des IV d'Attaque de l'échantillon",
+    inheritSatkIv: "% de chance d'hériter des IV d'Attaque Spéciale de l'échantillon",
+    inheritDefIv: "% de chance d'hériter des IV de Défense de l'échantillon",
+    inheritSdefIv: "% de chance d'hériter des IV de Défense Spéciale de l'échantillon",
+    inheritSpeIv: "% de chance d'hériter des IV de Vitesse de l'échantillon",
+    geneticsWarning: "Attention, coût en puissance trop élevé ! Seuls 5 des 6 IV maximum par stat seront hérités !",
     pokerusWarning: "Pokérus détecté sur l'hôte ! La compatibilité génétique est augmentée d'un niveau !",
     start: "Commencer",
 
-    // ===== BOUTIQUE =====
-    goods: "Objets",
-    evolutionItems: "Évolution",
-    geneticsItems: "Génétique",
+    // ===== SHOP =====
+    goods: "Marchandises",
+    evolutionItems: "Objets d'évolution",
+    geneticsItems: "Objets de génétique",
 
     // ===== STARTER =====
-    selectStarter: "Choisis un Pokémon de départ !",
+    selectStarter: "Choisissez un Pokémon de départ !",
     fireType: "Type Feu",
     grassType: "Type Plante",
     waterType: "Type Eau",
     starterTip: "Astuce : Cliquez droit (ou appuyez longuement sur mobile) sur la plupart des éléments pour plus d'informations",
 
-    // ===== AVERTISSEMENT =====
-    disclaimerText: "Ce projet est entièrement non officiel !<br><br>Tous les personnages et propriétés intellectuelles associés sont la propriété exclusive de Nintendo, Creatures Inc., et The Pokémon Company.<br><br>Toute utilisation des actifs est strictement à but non commercial et de divertissement. Aucune propriété n'est revendiquée, et tous les droits restent à leurs propriétaires respectifs.<br><br>Allez jouer aux jeux officiels !",
+    // ===== DISCLAIMER =====
+    disclaimerText: "Ce projet est entièrement non officiel !<br><br>Tous les personnages et la propriété intellectuelle associée sont la propriété exclusive de Nintendo, Creatures Inc., et The Pokémon Company.<br><br>Toute utilisation des actifs est strictement à des fins non commerciales et de divertissement. Aucun droit de propriété n'est revendiqué, et tous les droits restent à leurs propriétaires respectifs.<br><br>Allez jouer aux jeux officiels !",
 
     // ===== NOTIFICATIONS =====
     newItems: "Nouveaux objets !",
-    vsRewardsUpdate: "Grâce à la mise à jour des récompenses VS, vous avez été récompensé pour vos dresseurs vaincus :",
+    vsRewardsUpdate: "Suite à la mise à jour des récompenses VS, vous avez été récompensé pour vos dresseurs vaincus :",
     allTrainersDefeated: "Tous les dresseurs ont été vaincus !",
     howAboutFrontier: "Et si vous essayiez la Frontière Combat ?",
     newFeaturesUnlocked: "Nouvelles fonctionnalités débloquées !",
     newWildAreaUnlocked: "Nouvelle Zone Sauvage débloquée",
     mysteryGiftUnlocked: "Cadeau Mystère débloqué",
-    exportRewardUnlocked: "Récompense d'Export débloquée",
+    exportRewardUnlocked: "Récompense d'export débloquée",
 
     // ===== AFK =====
-    afkCalculating: "Le temps d'AFK est en cours de calcul, veuillez patienter...",
+    afkCalculating: "Calcul du temps AFK en cours, veuillez patienter...",
 
-    // ===== TUTORIEL =====
+    // ===== TUTORIAL =====
     completeTutorial: "Terminez le tutoriel pour accéder à",
 
-    // ===== DIVERS =====
+    // ===== MISC =====
     defeated: "Vaincu",
     notDefeated: "Non vaincu",
     locked: "Verrouillé",
@@ -186,7 +187,7 @@ i18n.register('ui', 'fr', {
     base: "Base",
     bonus: "Bonus",
 
-    // ===== STATS POKEMON =====
+    // ===== POKEMON STATS =====
     hp: "PV",
     attack: "Attaque",
     defense: "Défense",
@@ -195,68 +196,141 @@ i18n.register('ui', 'fr', {
     speed: "Vitesse",
     atk: "Atq",
     def: "Déf",
-    satk: "Atq Spé",
-    sdef: "Déf Spé",
+    satk: "AtqSpé",
+    sdef: "DéfSpé",
     spe: "Vit",
 
-    // ===== EMPLACEMENTS D'APPARITION =====
-    foundInWildArea: "Trouvé dans la Zone Sauvage",
+    // ===== SPAWN LOCATIONS =====
+    foundInWildArea: "Trouvé dans la zone sauvage",
     foundInEvent: "Trouvé dans l'événement",
     obtainedInEvent: "Obtenu dans l'événement",
     rewardFromEvent: "Récompense de l'événement",
-    foundRandomlyWildlifePark: "Trouvé aléatoirement dans la Zone Sauvage du Parc Naturel",
+    foundRandomlyWildlifePark: "Trouvé aléatoirement dans la zone sauvage du Parc Safari",
     obtainedBattleFrontier: "Obtenu comme récompense aléatoire à la Frontière Combat",
-    cannotBeCaught: "Ce Pokémon ne peut pas être capturé à ce stade",
+    cannotBeCaught: "Ce Pokémon ne peut pas être capturé dans son état actuel",
     unobtainable: "Ce Pokémon est inobtenable",
     purchasedInMart: "Peut être acheté au Poké-Marché",
     unlockedAllCaught: "Déverrouillé lorsque tous les Pokémon obtenables ont été capturés",
 
-    // ===== EMPLACEMENTS D'OBJETS =====
+    // ===== ITEM OBTAIN LOCATIONS =====
     droppedInDungeon: "Peut être trouvé dans la zone de donjon",
-    obtainedViaExportReward: "Obtenu via Récompense d'Export",
+    obtainedViaExportReward: "Obtenu via Récompense d'export",
     rewardFromSpiralingTower: "Récompense de la Tour Spirale",
     canBeBoughtInMart: "Peut être acheté au Poké-Marché",
     itemUnobtainable: "Cet objet est actuellement inobtenable",
     victoryRewards: "Récompenses de victoire",
     checkLearnableMoves: "Voir les attaques apprenables",
     abilityUnobtainable: "Cette capacité est actuellement inobtenable :(",
+    additionallyHiddenAbility: "Apparaît également comme capacité cachée de",
+    learnableByTypes: "Apprenable par les",
+    types: "types",
+    abilityOnlyHiddenOf: "Cette capacité ne peut apparaître que comme capacité cachée de",
 
-    // ===== ÉTIQUETTES D'ÉVÉNEMENTS =====
+    // ===== EVENT TAGS =====
     wildZone: "Zone Sauvage",
     collection: "Collection",
     tierIRaid: "Raid Niveau I",
     tierIIRaid: "Raid Niveau II",
     tierIIIRaid: "Raid Niveau III",
 
-    // ===== FRONTIÈRE COMBAT =====
+    // ===== FRONTIER =====
     spiralingTower: "Tour Spirale",
-    battleFactory: "Usine Combat",
+    battleFactory: "Usine de Combat",
     trainers: "Dresseurs",
 
-    // ===== FIN DE COMBAT =====
+    // ===== COMBAT END =====
     saveAndExit: "Sauvegarder et quitter",
-    fightAgain: "Combattre à nouveau",
-    autoRefight: "Recombattre auto",
-    requiresAutoRefightTicket: "(Nécessite un Ticket de Recombat Auto)",
-    battleSummary: "Résumé du combat",
+    fightAgain: "Recombattre",
+    autoRefight: "Recombattre automatiquement",
+    requiresAutoRefightTicket: "(Nécessite un Ticket de Recombat Automatique)",
+    battleSummary: "Récapitulatif du combat",
     newItemsTitle: "Nouveaux objets !",
     newPokemonTitle: "Nouveaux Pokémon !",
 
-    // ===== DIFFICULTÉ ÉVÉNEMENT =====
-    novice: "Débutant",
+    // ===== EVENT DIFFICULTY =====
+    novice: "Novice",
     elite: "Élite",
     master: "Maître",
 
-    // ===== ÉDITEUR DE POKEMON =====
+    // ===== POKEMON EDITOR =====
     baseStats: "Stats de base",
     ivsStats: "Stats IV",
     signatureMove: "Attaque Signature",
     comingSoon: "[Bientôt disponible]",
     expandLore: "Développer le lore",
-    selectMoveReplace: "Sélectionnez une attaque ci-dessous et remplacez-la par une de la liste des attaques apprises",
+    selectMoveReplace: "Sélectionnez une attaque ci-dessous et remplacez-la par une attaque apprise",
     learntMoves: "Attaques apprises",
 
-    // ===== THÈMES =====
+    // ===== HELP TOOLTIPS =====
+    helpVsTitle: "Dresseurs VS",
+    helpVsDesc: "Affrontez des dresseurs de plus en plus difficiles et tracez-vous un chemin vers la gloire ! Vous pourrez débloquer de nouvelles zones à explorer en progressant.",
+    helpFrontierTitle: "Frontière Combat",
+    helpFrontierDesc: "La Frontière Combat propose différents types de défis sous une restriction de division spécifique, qui change tous les trois jours. Les dresseurs affrontés ici sont réinitialisés chaque jour.",
+    helpSpiralTitle: "Tour de Combat",
+    helpSpiralDesc: "La Tour de Combat est un défi à difficulté infinie : chaque Pokémon vaincu augmente la difficulté. Les immunités de type y sont converties en résistances.<br><br>Chaque entrée commence au 1er étage, mais vous pouvez réessayer autant de fois que vous le souhaitez.<br><br>Votre étage le plus élevé est enregistré et réinitialisé lors de la rotation des ligues. Vous recevez des récompenses pour chaque nouveau record atteint à la fin du combat.",
+    currentTypeRotation: "Rotation actuelle des types",
+    helpFactoryTitle: "Usine de Combat",
+    helpFactoryDesc: "Dans l'Usine de Combat, votre objectif est d'infliger un maximum de dégâts. Vous subissez des dégâts fixes chaque tour, et les dégâts de statut sont désactivés.<br><br>Votre score est réinitialisé à chaque entrée, mais vous pouvez réessayer autant de fois que vous le souhaitez.<br><br>Votre meilleur score est enregistré et réinitialisé lors de la rotation des ligues. Vous recevez des récompenses en fonction de votre meilleur score atteint à la fin du combat.",
+    factoryPokemon: "Pokémon de l'Usine",
+    helpWildAreasTitle: "Zones Sauvages",
+    helpWildAreasDesc: "Tous les Pokémon dans les Zones Sauvages peuvent être capturés en les battant. Les Pokémon disponibles changent chaque jour, alors vérifiez régulièrement ce qui peut être attrapé aujourd'hui !",
+    helpDungeonsTitle: "Donjons",
+    helpDungeonsDesc: "Les Pokémon dans les Donjons ne peuvent pas être capturés, mais ils peuvent laisser tomber des objets utiles et de l'EXP. Les Donjons changent également chaque jour.",
+    helpTrainingTitle: "Entraînement",
+    helpTrainingDesc: "Affrontez des vagues d'ennemis pour renforcer vos Pokémon. Vous aurez naturellement l'avantage de type contre les Pokémon adverses, et leur niveau s'adaptera au vôtre. Les immunités de type y sont converties en résistances.<br><br>Un échec d'entraînement ne rapporte aucun gain.",
+    helpEventsTitle: "Événements",
+    helpEventsDesc: "Les Événements peuvent offrir des objets et des Pokémon à obtenir. Ceux marqués d'un crâne représentent des adversaires puissants, nécessitant souvent un objet pour les capturer (l'objet n'est pas consommé en cas d'échec). Ces objets peuvent être obtenus lors des événements de collection. Tous les Événements changent tous les trois jours.",
+    helpGeneticsTitle: "Génétique",
+    helpGeneticsDesc: "Avec la génétique, vous pouvez modifier les paramètres d'un Pokémon niveau 100 (l'hôte) en vous basant sur un autre Pokémon (l'échantillon).<br><br>L'hôte redescend au niveau 1, garde ses 4 attaques sélectionnées, et a une chance d'améliorer ses IV.<br><br>La génétique peut aussi être influencée par des objets d'aide génétique, utilisables à la fin de l'opération.<br><br>Plus d'informations dans la section guide.",
+    helpPokerusTitle: "Pokérus",
+    helpPokerusDesc: "Toutes les 12 heures, certains de vos Pokémon peuvent attraper le Pokérus. Ce virus est entièrement bénéfique et ajoute un niveau de compatibilité au Pokémon en génétique lorsqu'il est utilisé comme hôte.",
+    helpSettingTitle: "Paramètre",
+    helpSettingsNewPkmnDesc: "Masque automatiquement les Pokémon déjà obtenus après un combat. Sont exclus de ce paramètre : les nouveaux Pokémon, les améliorations d'IV et les Pokémon chromatiques.",
+    helpSettingsAlternateWildDesc: "Décale la rotation actuelle des Zones Sauvages de -1. Utile si vous avez manqué la rotation d'hier, ou si votre emploi du temps ne correspond pas à celui du jeu.",
+    helpKeywordsTitle: "Mots-clés",
+    helpKeywordsDictionaryDesc: "Opérateurs :<br>![mot-clé] : Exclure de la recherche<br>[mot-cléA] ou [mot-cléB] : Rechercher mot-cléA OU mot-cléB<br>[mot-cléA] [mot-cléB] : Rechercher mot-cléA ET mot-cléB<br><br>Mots-clés Pokémon :<br>inobtenable, sauvage, parc, événement, frontière, boutique, chromatique, attrapé, [type], [capacité cachée]<br><br>Mots-clés attaques :<br>physique, spécial, [type], [capacité]",
+    helpKeywordsPokedexDesc: "Opérateurs :<br>![mot-clé] : Exclure de la recherche<br>[mot-cléA] ou [mot-cléB] : Rechercher mot-cléA OU mot-cléB<br>[mot-cléA] [mot-cléB] : Rechercher mot-cléA ET mot-cléB<br><br>Mots-clés :<br>chromatique, pokérus, [type], [capacité], [capacité cachée], [niveau], [attaque]",
+    helpMainChallengesTitle: "Défis Principaux",
+    helpMainChallengesDesc: "Des combats narratifs et des défis sélectionnés se trouvent ici. D'autres Défis Principaux arriveront bientôt.",
+    helpCustomChallengesTitle: "Défis Personnalisés",
+    helpCustomChallengesDesc: "Créez des combats personnalisés à partir de vos propres pools et équipes ennemies. Importez et exportez des codes de défi pour les partager.",
+
+    // ===== ABILITY RARITY =====
+    commonAbility: "Capacité commune",
+    uncommonAbility: "Capacité peu commune",
+    rareAbility: "Capacité rare",
+
+    // ===== WILDLIFE PARK =====
+    wildlifeParkRotation: "Les Pokémon du Parc Safari changent toutes les 12 heures",
+
+    // ===== STATUS EFFECTS =====
+    burnDesc: "Diminue l'Attaque Physique de 50 % et inflige des dégâts chaque tour",
+    poisonedDesc: "Diminue l'Attaque Spéciale de 50 % et inflige des dégâts chaque tour",
+    sleepDesc: "Les attaques échouent à infliger des dégâts",
+    freezeDesc: "Les attaques échouent à infliger des dégâts",
+    confusedDesc: "50 % de chances que les attaques échouent à infliger des dégâts",
+    paralysisDesc: "25 % de chances que les attaques échouent à infliger des dégâts et la Vitesse est réduite de 75 %",
+
+    // ===== WEATHER EFFECTS =====
+    sunnyDesc: "Augmente les dégâts des attaques de type Feu de 75 % et réduit ceux des attaques de type Eau de 50 %",
+    rainyDesc: "Augmente les dégâts des attaques de type Eau de 75 % et réduit ceux des attaques de type Feu de 50 %",
+    sandstormDesc: "Augmente les dégâts des attaques de type Roche et Sol de 75 %",
+    hailDesc: "Augmente les dégâts des attaques de type Glace de 75 %",
+    foggyDesc: "Augmente les dégâts des attaques de type Ténèbres et Spectre de 75 %",
+    electricTerrainDesc: "Augmente les dégâts des attaques de type Électrik et Acier de 75 %",
+    grassyTerrainDesc: "Augmente les dégâts des attaques de type Plante et Insecte de 75 %",
+    mistyTerrainDesc: "Augmente les dégâts des attaques de type Fée et Psy de 75 %",
+
+    // ===== MOVE INFO =====
+    noAdditionalEffects: "Aucun effet supplémentaire",
+
+    // ===== RESTRICTED =====
+    restrictedAction: "Action restreinte",
+    restrictedActionDesc: "Les attaques ne peuvent pas être changées librement pour le moment",
+    restrictedMove: "Attaque restreinte",
+    restrictedMoveDesc: "Les attaques restreintes ne peuvent pas être changées librement pendant le combat",
+
+    // ===== THEMES =====
     darkTheme: "Thème Sombre",
     lightTheme: "Thème Clair",
     verdantTheme: "Thème Verdoyant",

@@ -17,7 +17,7 @@ i18n.register('ui', 'en', {
     yeah: "Yeah!",
     language: "Language",
     creditsText: "Made by Duck<br><br>Pokemon and trainer sprites by Pokemon Showdown (Including artists: Beliot419, kyledove, Gnomowladny, Brumirage and ZacWeavile. Go check their work. Now.)<br><br>Gen 9 sprites by KingOfThe-X-Roads<br><br>All characters and related assets featured in this game are the exclusive property of Nintendo, Creatures Inc., and The Pokemon Company, and are used here strictly for non-commercial purposes.",
- 
+
     // ===== MAIN MENU =====
     travel: "Travel",
     vs: "VS",
@@ -38,21 +38,21 @@ i18n.register('ui', 'en', {
     guide: "Guide",
     gameGuide: "Game Guide",
     fullScreen: "Full Screen",
- 
+
     // ===== ITEM MENU =====
     held: "Held",
     tms: "TM's",
     key: "Key",
     cancel: "Cancel",
     remove: "Remove",
- 
+
     // ===== COMBAT =====
     leaveCombat: "Leave Combat",
     wildAreas: "Wild Areas",
     dungeons: "Dungeons",
     events: "Events",
     battleFrontier: "Battle Frontier",
- 
+
     // ===== EXPLORE MENU =====
     level: "Level",
     trainerLevel: "Trainer Level",
@@ -66,7 +66,7 @@ i18n.register('ui', 'en', {
     noNewItemsOrPokemon: "No new items or Pokemon :(",
     allTrainersDefeated: "All trainers defeated!",
     howAboutFrontier: "How about the Battle Frontier?",
- 
+
     // ===== POKEDEX =====
     pokemon: "Pokemon",
     abilities: "Abilities",
@@ -77,7 +77,7 @@ i18n.register('ui', 'en', {
     searchKeywords: "Right Click to see keywords",
     selectPokemonToUse: "Select a Pokemon to use the",
     selectPokemonToTeach: "Select a pokemon to teach",
- 
+
     // ===== FILTERS =====
     type: "type",
     all: "all",
@@ -101,7 +101,7 @@ i18n.register('ui', 'en', {
     none: "none",
     hidden: "hidden",
     sort: "sort",
- 
+
     // ===== TRAINING =====
     ivTraining: "IV Training",
     expTraining: "EXP Training",
@@ -109,7 +109,7 @@ i18n.register('ui', 'en', {
     abilityTraining: "Ability Training",
     hiddenAbilityTraining: "Hidden Ability Training",
     difficulty: "Difficulty",
- 
+
     // ===== GENETICS =====
     compatibility: "Compatibility",
     powerCost: "Power Cost",
@@ -125,22 +125,22 @@ i18n.register('ui', 'en', {
     geneticsWarning: "Warning, power cost too high! Only 5 out of 6 maximum IV's per stat will be inherited!",
     pokerusWarning: "Pokerus detected on the host! Genetic compatibility is increased by one level!",
     start: "Start",
- 
+
     // ===== SHOP =====
     goods: "Goods",
     evolutionItems: "Evolution",
     geneticsItems: "Genetics",
- 
+
     // ===== STARTER =====
     selectStarter: "Select a starter!",
     fireType: "Fire Type",
     grassType: "Grass Type",
     waterType: "Water Type",
     starterTip: "Tip: Right click (or long-press on mobile) on most elements for additional information",
- 
+
     // ===== DISCLAIMER =====
     disclaimerText: "This project is entirely unofficial!<br><br>All characters and related intellectual property featured are the exclusive property of Nintendo, Creatures Inc., and The Pokemon Company.<br><br>Any use of assets is solely for non-commercial and entertainment purposes. No ownership is claimed, and all rights remain with their respective owners<br><br>Go play the official games!",
- 
+
     // ===== NOTIFICATIONS =====
     newItems: "New items!",
     vsRewardsUpdate: "Due to the vs rewards update you have been rewarded for your defeated trainers:",
@@ -150,13 +150,13 @@ i18n.register('ui', 'en', {
     newWildAreaUnlocked: "New Wild Area unlocked",
     mysteryGiftUnlocked: "Mystery Gift unlocked",
     exportRewardUnlocked: "Export Reward unlocked",
- 
+
     // ===== AFK =====
     afkCalculating: "AFK time is being calculated, please wait...",
- 
+
     // ===== TUTORIAL =====
     completeTutorial: "Complete the tutorial to access",
- 
+
     // ===== MISC =====
     defeated: "Defeated",
     notDefeated: "Not Defeated",
@@ -186,7 +186,7 @@ i18n.register('ui', 'en', {
     current: "Current",
     base: "Base",
     bonus: "Bonus",
- 
+
     // ===== POKEMON STATS =====
     hp: "HP",
     attack: "Attack",
@@ -199,7 +199,7 @@ i18n.register('ui', 'en', {
     satk: "SAtk",
     sdef: "SDef",
     spe: "Spe",
- 
+
     // ===== SPAWN LOCATIONS =====
     foundInWildArea: "Found in the wild area",
     foundInEvent: "Found in the event",
@@ -221,14 +221,18 @@ i18n.register('ui', 'en', {
     victoryRewards: "Victory Rewards",
     checkLearnableMoves: "Check learnable moves",
     abilityUnobtainable: "This ability is currently unobtainable :(",
- 
+    additionallyHiddenAbility: "Additionally, appears as the Hidden ability of",
+    learnableByTypes: "Learnable by",
+    types: "types",
+    abilityOnlyHiddenOf: "This ability can only appear as the Hidden Ability of",
+
     // ===== EVENT TAGS =====
     wildZone: "Wild Zone",
     collection: "Collection",
     tierIRaid: "Tier I Raid",
     tierIIRaid: "Tier II Raid",
     tierIIIRaid: "Tier III Raid",
- 
+
     // ===== FRONTIER =====
     spiralingTower: "Spiraling Tower",
     battleFactory: "Battle Factory",
@@ -256,6 +260,75 @@ i18n.register('ui', 'en', {
     expandLore: "Expand Lore",
     selectMoveReplace: "Select a move below and replace it with one of the list of learnt moves",
     learntMoves: "Learnt Moves",
+
+    // ===== HELP TOOLTIPS =====
+    helpVsTitle: "VS Trainers",
+    helpVsDesc: "Defeat increasingly difficult trainers and carve yourself a path of fame! You may unlock additional areas to explore as your progress",
+    helpFrontierTitle: "Battle Frontier",
+    helpFrontierDesc: "The Battle Frontier houses different types of challenges under a specific division restriction that rotates every three days. Trainers fought here will reset every day",
+    helpSpiralTitle: "Battle Tower",
+    helpSpiralDesc: "The Battle Tower is an infinitely-scaling challenge in which every Pokemon defeated will increase the difficulty. Type Immunities inside this challenge will be instead converted to resistances<br><br>Every time you enter the tower, you will start from floor 1, but you can try as many times as you'd like<br><br>Your highest reached floor will be saved, and reset when the league rotation changes. You will be rewarded for every new highest floor reached at the end of the battle",
+    currentTypeRotation: "Current Type Rotation",
+    helpFactoryTitle: "Battle Factory",
+    helpFactoryDesc: "The Battle Factory is a challenge in which your goal is to deal the maximum amount of damage. Every turn you will take a fixed amount of damage, and damage from status effects is disabled.<br><br>Every time you enter the factory, your score will reset, but you can try as many times as you'd like<br><br>Your highest reached score will be saved, and reset when the league rotation changes. You will be rewarded for your highest score reached at the end of the battle",
+    factoryPokemon: "Factory Pokemon",
+    helpWildAreasTitle: "Wild Areas",
+    helpWildAreasDesc: "All Pokemon in Wild Areas might be caught by defeating them. Wild Areas rotate every day, so be sure to check out what can be caught today!",
+    helpDungeonsTitle: "Dungeons",
+    helpDungeonsDesc: "Pokemon in Dungeons can't be caught, but they can drop useful items and EXP. Dungeons rotate every day aswell",
+    helpTrainingTitle: "Training",
+    helpTrainingDesc: "Challenge your Pokemon against waves of foes in order to get stronger. You will naturally have typing advantage against Pokemon fought against, and their level will scale to yours. Type Immunities inside training will be instead converted to resistances.<br><br>Failing a training will result in no gains",
+    helpEventsTitle: "Events",
+    helpEventsDesc: "Events might house both items and Pokemon to get. Events marked with a skull signify powerful foes that usually require an item to catch (The item wont be consumed if failed to defeat) that can be acquired in the collection events. All Events rotate every three days.",
+    helpGeneticsTitle: "Genetics",
+    helpGeneticsDesc: "With genetics, you can modify the parameters of a level 100 Pokemon (the host) and influence them based on another Pokemon (the sample)<br><br>Doing so, the level of the host will reset back to 1 while keeping all 4 of its currently selected moves, and a chance to increase its IV's<br><br>Genetics can also be influenced by using genetic-aiding items, which you can use at the end of the operation<br><br>You can find more information about the specifics of genetics in the guide section",
+    helpPokerusTitle: "Pokerus",
+    helpPokerusDesc: "Every 12 hours, some of your Pokemon will contract Pokerus. This virus is entirely beneficial, and will add one level of compatibility to the Pokemon in genetics when used as a host",
+    helpSettingTitle: "Setting",
+    helpSettingsNewPkmnDesc: "Automatically hides got Pokemon that are not new after a battle. Excluded from this setting are: New Pokemon, Iv's Ups and Shiny Pokemon",
+    helpSettingsAlternateWildDesc: "Decreases the current Wild Area rotation by -1. Useful if you missed yesterday's rotation, or if your schedule doesnt line up with my game",
+    helpKeywordsTitle: "Keywords",
+    helpKeywordsDictionaryDesc: "Operators:<br>![keyword]: Exclude from search<br>[keywordA] or [keywordB]: Search keywordA OR keywordB<br>[keywordA] [keywordB]: Search for keywordA AND keywordB<br><br>Pokemon keywords:<br>unobtainable, wild, park, event, frontier, mart, shiny, caught, [type], [hidden ability]<br><br>Move keywords:<br>physical, special, [type], [ability]",
+    helpKeywordsPokedexDesc: "Operators:<br>![keyword]: Exclude from search<br>[keywordA] or [keywordB]: Search keywordA OR keywordB<br>[keywordA] [keywordB]: Search for keywordA AND keywordB<br><br>Keywords:<br>shiny, pokerus, [type], [ability], [hidden ability], [level], [move]",
+    helpMainChallengesTitle: "Main Challenges",
+    helpMainChallengesDesc: "Story-driven battles and curated challenges live here. More Main Challenges are coming soon.",
+    helpCustomChallengesTitle: "Custom Challenges",
+    helpCustomChallengesDesc: "Create custom battles from your own pools and enemy teams. Import and export challenge codes to share them.",
+
+    // ===== ABILITY RARITY =====
+    commonAbility: "Common Ability",
+    uncommonAbility: "Uncommon Ability",
+    rareAbility: "Rare Ability",
+
+    // ===== WILDLIFE PARK =====
+    wildlifeParkRotation: "Pokemon in the Wildlife Park rotate every 12 hours",
+
+    // ===== STATUS EFFECTS =====
+    burnDesc: "Decreases Physical Attack by 50% and deals damage every turn",
+    poisonedDesc: "Decreases Special Attack by 50% and deals damage every turn",
+    sleepDesc: "Moves fail to deal damage",
+    freezeDesc: "Moves fail to deal damage",
+    confusedDesc: "50% chance for moves to fail to deal damage",
+    paralysisDesc: "25% chance for moves to fail to deal damage and Speed is reduced by 75%",
+
+    // ===== WEATHER EFFECTS =====
+    sunnyDesc: "Increases the damage of Fire-Type moves by 75% and decreases the damage of Water-Type moves by 50%",
+    rainyDesc: "Increases the damage of Water-Type moves by 75% and decreases the damage of Fire-Type moves by 50%",
+    sandstormDesc: "Increases the damage of Rock and Ground-Type moves by 75%",
+    hailDesc: "Increases the damage of Ice-Type moves by 75%",
+    foggyDesc: "Increases the damage of Dark and Ghost-Type moves by 75%",
+    electricTerrainDesc: "Increases the damage of Electric and Steel-Type moves by 75%",
+    grassyTerrainDesc: "Increases the damage of Grass and Bug-Type moves by 75%",
+    mistyTerrainDesc: "Increases the damage of Fairy and Psychic-Type moves by 75%",
+
+    // ===== MOVE INFO =====
+    noAdditionalEffects: "No additional effects",
+
+    // ===== RESTRICTED =====
+    restrictedAction: "Restricted Action",
+    restrictedActionDesc: "Moves cannot be freely switched at this moment",
+    restrictedMove: "Restricted Move",
+    restrictedMoveDesc: "Restricted moves cannot be freely switched during combat",
 
     // ===== THEMES =====
     darkTheme: "Dark Theme",
